@@ -1,9 +1,10 @@
 <?php
 
-$servername = "mysql-delivcrous.alwaysdata.net";
-$username   = "440319";         
-$password   = "Nextu2025";             
-$dbname     = "delivecrous_db";
+// Récupère les variables d'environnement
+$servername = getenv('DB_SERVER') ?: $_ENV['DB_SERVER'] ?? 'localhost';
+$username   = getenv('DB_USERNAME') ?: $_ENV['DB_USERNAME'] ?? 'root';
+$password   = getenv('DB_PASSWORD') ?: $_ENV['DB_PASSWORD'] ?? '';
+$dbname     = getenv('DB_NAME') ?: $_ENV['DB_NAME'] ?? 'database';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
